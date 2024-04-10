@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 
 import {
   ColumnDef,
@@ -28,6 +27,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import AddUser from "@/components/userManagement/addUser";
+import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
