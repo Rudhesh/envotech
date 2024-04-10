@@ -6,7 +6,7 @@ import { useLocale } from "next-intl";
 import Loader from "../../../components/common/loader";
 import Image from "next/image";
 
-type props = {
+type Props = {
   title: string;
   button: string;
   footer: string;
@@ -27,7 +27,7 @@ const inputStyles = `
   focus:text-black
 `;
 
-const Login = ({ title, button, footer }: props) => {
+const Login = ({ title, button, footer }: Props) => {
   const router = useRouter();
   const [error, setError] = useState("");
   const locale = useLocale();
