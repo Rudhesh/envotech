@@ -23,7 +23,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import AddUser from "@/components/userManagement/addUser";
@@ -34,15 +33,8 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
-
-  if (!data) {
-    return <div>Error: Data is unavailable at the moment.</div>;
-  }
-
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+  // Define state and table hooks at the top level, not conditionally
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -63,6 +55,11 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
+  // Now, check if data is available right before rendering the component's content
+  if (!data || data.length === 0) {
+    return <div>Data is unavailable at the moment.</div>;
+  }
 
   return (
     <>
