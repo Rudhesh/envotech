@@ -8,7 +8,6 @@ export async function GET() {
     });
 
     let data = JSON.stringify(users);
-    console.log({data})
     return new Response(data, {
         status: 200,
     });
