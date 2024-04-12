@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+
+
 import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from "bcryptjs";
