@@ -6,7 +6,11 @@ import { useLocale } from "next-intl";
 import Loader from "../../../components/common/loader";
 import Image from "next/image";
 
-
+interface LoginProps {
+  title: string;
+  button: string;
+  footer: string;
+}
 
 const inputStyles = `
   w-full 
@@ -23,7 +27,7 @@ const inputStyles = `
   focus:text-black
 `;
 
-const  Login: React.FC = ({ title, button, footer }: any) => {
+const  Login: React.FC<LoginProps> = ({ title, button, footer }) => {
   const router = useRouter();
   const [error, setError] = useState("");
   const locale = useLocale();
