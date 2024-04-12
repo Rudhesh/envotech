@@ -1,4 +1,5 @@
-// Assuming you have this in a file like lib/db.js
+export const dynamic = "force-dynamic";
+
 import mysql from "mysql2/promise";
 
 export async function query({ queryText, values = [], host, user, password, database }) {
