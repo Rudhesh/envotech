@@ -13,8 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/data-table";
-import { columns } from "../panel/columns";
-import EditPanel from "../panel/editPanel";
+
 
 interface Panel {
   id: string | number;
@@ -82,9 +81,7 @@ const Dashboards = () => {
 
   return (
     <>
-      {selectedPanel ? (
-        <EditPanel data={selectedPanel.data.filteredData || []} name={selectedPanel.name} />
-      ) : (
+      
         <GridLayout
           className="layout"
           layout={layout}
@@ -119,17 +116,14 @@ const Dashboards = () => {
                   {panel.showGraph ? (
                     <Graph data={panel.data.filteredData || []} />
                   ) : (
-                    <DataTable
-                      columns={columns}
-                      data={panel.data.filteredData || []}
-                    />
+                    <h1>table</h1>
                   )}
                 </CardContent>
               </Card>
             </div>
           ))}
         </GridLayout>
-      )}
+      
     </>
   );
 };
