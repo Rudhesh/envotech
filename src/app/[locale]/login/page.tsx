@@ -5,13 +5,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import Loader from "../../../components/common/loader";
 import Image from "next/image";
-import { AnyARecord } from "dns";
 
-interface LoginProps {
-  title: any;
-  button: any;
-  footer: any;
-}
 
 const inputStyles = `
   w-full 
@@ -28,7 +22,7 @@ const inputStyles = `
   focus:text-black
 `;
 
-const  Login: React.FC<LoginProps> = ({ title, button, footer }) => {
+const  Login: React.FC = ({ title, button, footer }:any) => {
   const router = useRouter();
   const [error, setError] = useState("");
   const locale = useLocale();
