@@ -52,24 +52,6 @@ export const getUsers = async () => {
 };
 
 
-export const handleDelete = async (userId: any) => {
-  const userRepository = useDeleteUserRepository();
-  try {
-    await userRepository.remove(userId);
-    console.log('User deleted successfully');
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      return {
-        error: error.message,
-      };
-    }
-
-    // Handle other types of errors if needed
-    return {
-      error: 'An unexpected error occurred',
-    };
-  }
-};
 
 
 
