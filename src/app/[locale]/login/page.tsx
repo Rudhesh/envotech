@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import Loader from "../../../components/common/loader";
 import Image from "next/image";
+import { AnyARecord } from "dns";
 
 interface LoginProps {
-  title: string;
-  button: string;
-  footer: string;
+  title: any;
+  button: any;
+  footer: any;
 }
 
 const inputStyles = `
