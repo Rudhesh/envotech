@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
 import Image from "next/image";
 
 type props = {
@@ -52,18 +50,9 @@ const Login = ({ title, button, footer }: props) => {
       return;
     }
 
-    const res = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
 
-    if (res?.error) {
-      setError("Invalid email or password");
-      if (res?.url) router.replace("/dashboard");
-    } else {
-      setError("");
-    }
+
+    
   };
 
 
