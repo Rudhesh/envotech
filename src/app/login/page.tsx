@@ -3,11 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-type props = {
-  title: string;
-  button: string;
-  footer: string;
-};
+
 
 const inputStyles = `
   w-full 
@@ -24,7 +20,7 @@ const inputStyles = `
   focus:text-black
 `;
 
-const Login = ({ title, button, footer }: props) => {
+const Login = () => {
   const router = useRouter();
   const [error, setError] = useState("");
 
@@ -82,7 +78,7 @@ const Login = ({ title, button, footer }: props) => {
                 </div>
 
                 <h2 className="mt-2 text-center text-xl  mb-10  leading-9 tracking-tight text-gray-900">
-                  {title}
+                  Envotech
                 </h2>
               </div>
               <form onSubmit={handleSubmit}>
@@ -102,8 +98,7 @@ const Login = ({ title, button, footer }: props) => {
                   type="submit"
                   className="flex w-full justify-center rounded bg-[#384D6C] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#303f57] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#303f57]"
                 >
-                  {" "}
-                  {button}
+                 Button
                 </button>
                 <p className="text-red-600 text-[16px] mb-4">
                   {error && error}
@@ -124,7 +119,7 @@ const Login = ({ title, button, footer }: props) => {
               </div>
 
               <p className="mt-10 text-center text-sm text-gray-500">
-                {footer}{" "}
+                with love
                 <a
                   href="#"
                   className="font-semibold leading-6 text-red-600 hover:text-[#303f57]"
