@@ -4,11 +4,9 @@ import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from "bcryptjs";
 import { AuthOptions } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
 
-
-
-export const authOptions: AuthOptions = {  session: {
+export const authOptions: AuthOptions = {
+  session: {
     strategy: "jwt",
   },
   providers: [
@@ -19,8 +17,7 @@ export const authOptions: AuthOptions = {  session: {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      
-      async authorize(credentials:any) { // Use the explicitly defined Credentials type
+      async authorize(credentials:any) {
         connect();
 
         const { email, password } = credentials;
@@ -38,10 +35,7 @@ export const authOptions: AuthOptions = {  session: {
         return user;
       },
     }),
-    GithubProvider({
-      clientId: process.env.GITHUB_ID ?? "",
-      clientSecret: process.env.GITHUB_SECRET ?? "",
-    }),
+
   ],
   callbacks: {
     jwt: async ({ token, user }) => {
@@ -49,14 +43,13 @@ export const authOptions: AuthOptions = {  session: {
       return token;
     },
     session: async ({ session, token }) => {
-      console.log(session.user)
+      console.log(session.user);
       session.user = token.user as any;
-      console.log(token.user)
+      console.log(token.user);
       return session;
     },
   },
-  
-}
+};
 
 const handler = NextAuth(authOptions);
 
