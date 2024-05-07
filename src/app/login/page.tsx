@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { signIn, useSession } from "next-auth/react";
 
 
 
@@ -24,7 +25,14 @@ const Login = () => {
   const router = useRouter();
   const [error, setError] = useState("");
 
+  const { data: session, status: sessionStatus } = useSession();
 
+
+  useEffect(() => {
+    if (sessionStatus === "authenticated") {
+      router.replace(`/dashboard`);
+    }
+  }, [sessionStatus, router]);
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -46,11 +54,21 @@ const Login = () => {
       return;
     }
 
+    const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
 
-
-    
+    if (res?.error) {
+      setError("Invalid email or password");
+      if (res?.url) router.replace("/dashboard");
+    } else {
+      setError("");
+    }
   };
 
+ 
 
   const handleResetPassword = () => {
     // Add logic to navigate to the Forgot Password page
