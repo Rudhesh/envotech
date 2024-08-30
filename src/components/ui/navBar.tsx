@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import Sidebar from "./sidebar";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOpt";
 
 const NavBar = async () => {
   const session = await getServerSession(authOptions);
