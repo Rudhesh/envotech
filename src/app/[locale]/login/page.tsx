@@ -30,7 +30,7 @@ const Login = () => {
 
   useEffect(() => {
     if (sessionStatus === "authenticated") {
-      router.replace(`/dashboard`);
+      router.replace(`/en/dashboard`);
     }
   }, [sessionStatus, router]);
 
@@ -93,6 +93,7 @@ const Login = () => {
                   <h1 className="mt-2 text-center text-xl font-bold  mb-2  leading-9 tracking-tight  text-gray-900">
                     BMT DATA HUB
                   </h1>
+                  
                 </div>
 
                 <h2 className="mt-2 text-center text-xl  mb-10  leading-9 tracking-tight text-gray-900">
