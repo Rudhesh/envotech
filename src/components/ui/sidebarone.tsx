@@ -3,7 +3,6 @@ import React from 'react';
 import { Button } from "./button"
 import { Sheet, SheetContent, SheetTrigger } from "./sheet"
 
-import Counter from '../common/translationContainer';
 import NavBar from './navBar';
 
 
